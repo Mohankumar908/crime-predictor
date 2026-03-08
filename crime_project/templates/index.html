@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crime Prediction</title>
+</head>
+
+<body>
+
+<h2>Crime Rate Predictor</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Year</label>
+<input type="number" name="year" required>
+
+<br><br>
+
+<label>Month</label>
+<input type="number" name="month" required>
+
+<br><br>
+
+<label>Previous Month Crime</label>
+<input type="number" name="prev_crime" required>
+
+<br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if prediction %}
+<h3>Predicted Crime Count: {{prediction}}</h3>
+{% endif %}
+
+</body>
+</html>
